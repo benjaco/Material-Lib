@@ -91,7 +91,7 @@ Style the size of the icon with setting the height and width of the div, the ico
 `.material-icon_no_animation` can be added to disable the animation when icon attribute changes
 ######Animation requires Velocity.js 
 
-Icons
+Icons:
 
 plus
 
