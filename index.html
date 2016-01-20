@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="style/main.css"/>
+    <link rel="stylesheet" href="style/ripple.css"/>
+    <link rel="stylesheet" href="style/ink.css"/>
+    <link rel="stylesheet" href="style/input.css"/>
+    <link rel="stylesheet" href="style/checkbox.css"/>
+    <link rel="stylesheet" href="style/alert.css"/>
+    <link rel="stylesheet" href="style/shadow.css"/>
+    <link rel="stylesheet" href="style/notification.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/velocity/velocity.min.js"></script>
+    <script src="js/a_main.js"></script>
+    <script src="js/ink.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/icon.js"></script>
+    <script src="js/checkbox.js"></script>
+    <script src="js/tools.js"></script>
+
+
+    <!--
+        <link rel="stylesheet" href="dist/material.min.css"/>
+        <script src="dist/material.min.js"></script>-->
+
+    <script>
+        $(function () {
+            materialFramework.init();
+
+
+        })
+
+        function addElement() {
+            $('body').append('<input type="text" class="material-input" placeholder="navn" style="width: 200px;"/>')
+        }
+
+        var icons =
+                [
+                    "plus",
+                    "close",
+                    "check",
+                    "menu",
+                    "arrow_back",
+                    "arrow_forward"
+                ];
+        function toggle() {
+            $("#icon").attr("data-icon", icons[Math.floor(Math.random() * icons.length)])
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button {
+            padding: 10px;
+            margin: 15px;
+
+        }
+
+        .red .bar .left,
+        .red .bar .right,
+        .red .input.focused.down, .red .input.focused .highlight-bar {
+            background-color: #d13f31 !important;
+        }
+
+        .red .input.focused.up label {
+            color: #d13f31 !important;
+        }
+
+        .green_ink .material-ink_e {
+            background-color: rgba(77, 212, 79, .5) !important;
+        }
+
+        .blue_ink .material-ink_e {
+            background-color: rgba(66, 132, 242, 1) !important;
+        }
+
+        textarea {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="frame" style="margin: 10px;">
+
+    <h2>Autocomplete test</h2>
+    <!-- test of autocompleat -->
+    <form action="http://posttestserver.com/post.php" method="post">
+
+        <h4>Non floating label</h4>
+        <input type="text" maxlength="50" class="material-input  material-input_no_float" placeholder="Navn" name="u"
+               data-material-validation-group="te" data-material-regexp="[0-5]"
+               data-material-error="Mathger ikke talet"/>
+
+        <h4>Floating label</h4>
+        <input type="password" class="material-input" placeholder="Navn" name="p"
+               data-material-validation-group="te" data-material-regexp="[a-z]"
+               data-material-error="Mathger ikke talet"/>
+
+        <div style="clear: both">
+            <button  class=" material-ripple material-ink material-button "> Submit</button>
+        </div>
+    </form>
+
+
+    <h2>Icons</h2>
+    <h4>Round ink and animated icon</h4>
+    <!-- icon test -->
+    <div class=" material-ink material-ink-round material-ripple "
+         style=" width: 40px; height: 40px; border-radius: 100px; background-color: #db4437 "
+         data-material-ink-color="#ffffff"
+         onclick="toggle()"
+    >
+        <div id="icon" class="material-icon" data-icon="plus"
+             style="stroke-width: 2px; stroke: #fff;height: 22px;width: 22px; margin: 9px"></div>
+
+
+    </div>
+
+    <div class=" material-ink material-ink-round " style="height: 42px;width: 42px; padding: 5px;">
+        <div class=" material-ink material-ink-round material-icon" data-icon="check"
+             style="stroke-width: 2px; stroke: #000;height: 22px;width: 22px; margin: 9px"></div>
+    </div>
+
+    <div class="material-icon" data-icon="menu"
+         style="stroke-width: 2px; stroke: #000;height: 22px;width: 22px; margin: 9px"></div>
+    <div class="material-icon" data-icon="arrow_back"
+         style="stroke-width: 2px; stroke: #000;height: 22px;width: 22px; margin: 9px"></div>
+    <div class="material-icon" data-icon="arrow_forward"
+         style="stroke-width: 2px; stroke: #000;height: 22px;width: 22px; margin: 9px"></div>
+    <div class="material-icon" data-icon="close"
+         style="stroke-width: 2px; stroke: #000;height: 22px;width: 22px; margin: 9px"></div>
+
+
+    <h2>New material elements will automaticly be initialisied</h2>
+    <button onclick="
+        addElement()
+    " class=" material-ripple material-ink material-button "
+            style=" border-radius: 2px; background-color: #d13f31; color: #ffffff;">
+        Add element to dom
+    </button>
+
+    <h2>Tools to the libery</h2>
+
+    <!-- alert -->
+    <button class=" material-ink material-button blue_ink"
+            style="background-color: transparent; border-radius: 2px"
+
+            onclick="materialFramework.tools.alert('Alert box', 'More text if needed', 'Close')"
+    >
+        Alert
+    </button>
+    <!-- alert -->
+    <button class=" material-ink material-button blue_ink"
+            style="background-color: transparent; border-radius: 2px"
+
+            onclick="materialFramework.tools.confirm('Confirm box', 'Are you sure', 'Yes', 'No', function(a){alert('Pressed yes')}, function(a){alert('Pressed no')})"
+    >
+        Confirm
+    </button>
+    <!-- Notification -->
+    <button class=" material-ink material-button blue_ink"
+            style="background-color: transparent; border-radius: 2px"
+
+            onclick="materialFramework.tools.new_notification({text:'test'})"
+    >
+        Notification
+    </button>
+    <button class=" material-ink material-button blue_ink"
+            style="background-color: transparent; border-radius: 2px"
+
+            onclick="materialFramework.tools.new_notification({text:'test', time:10000, actiontext:'fortryd', action:function(){ console.log('hej') }})"
+    >
+        Notification med action
+    </button>
+    <button class=" material-ink material-button blue_ink"
+            style="background-color: transparent; border-radius: 2px"
+
+            onclick="materialFramework.tools.new_notification({text:'test', time:10000, actiontext:'fortryd', action:function(){ console.log('hej') }, actiontextcolor:'#69207A'})"
+    >
+        Notification med action i lilla
+    </button>
+
+
+    <h2>Ink effect</h2>
+    <h4>Normal speed</h4>
+    <div class=" material-ink material-ripple" style="width: 250px; height: 156px; border-radius: 2px"
+         data-material-ink-color="#ffffff">
+        <img
+                src="http://stylonica.com/wp-content/uploads/2014/02/Beauty-of-nature-random-4884759-1280-800.jpg"
+                width="250"
+        />
+
+    </div>
+
+    <h4>Slow</h4>
+    <div class=" material-ink"
+         style="width: 250px; height: 156px; border-radius: 2px">
+        <img
+                src="http://stylonica.com/wp-content/uploads/2014/02/Beauty-of-nature-random-4884759-1280-800.jpg"
+                width="250"
+        />
+
+    </div>
+
+    <h4>Even more slow</h4>
+    <div class=" material-ink material-ripple material-ink_slower"
+         style="width: 250px; height: 156px; border-radius: 2px">
+        <img
+                src="http://stylonica.com/wp-content/uploads/2014/02/Beauty-of-nature-random-4884759-1280-800.jpg"
+                width="250"
+        />
+
+    </div>
+    <h4>Green ink</h4>
+    <div class=" material-ink material-ripple material-ink_slowest green_ink"
+         style="width: 250px; height: 156px; border-radius: 2px">
+        <img
+                src="http://stylonica.com/wp-content/uploads/2014/02/Beauty-of-nature-random-4884759-1280-800.jpg"
+                width="250"
+        />
+
+    </div>
+
+
+    <h2>Inputs</h2>
+    <h4>Plain inputbox (floating label is dafalt)</h4>
+    <input type="text" class="material-input" placeholder="Navn" style="width: 50px;"/>
+    <h4>Fill half of the screen</h4>
+    <input type="text" class="material-input" placeholder="Navn" data-material-width-percent="50"/>
+
+    <h4>Full with within a div with max-with</h4>
+    <div style="width: 100%; max-width: 500px">
+        <input type="text" class="material-input material-input_no_float" placeholder="Navn"
+               data-material-width-percent="100"/>
+    </div>
+
+    <h4>Disabled input feild</h4>
+    <input type="text" class="material-input material-input_no_float" placeholder="Navn" disabled
+           style="width: 200px;"/>
+
+
+
+    <h4>Red styled input feild</h4>
+    <div class="red">
+        <input type="text" class="material-input" placeholder="Navn" style="width: 200px;"/>
+    </div>
+
+    <h2>Checkboxes</h2>
+    <input type="checkbox" class="material-checkbox"/>
+    <input type="checkbox" class="material-checkbox" checked/>
+
+    <input type="checkbox" class="material-checkbox" disabled/>
+    <input type="checkbox" class="material-checkbox" checked disabled/>
+
+
+    <h2>Textareas</h2>
+    <h4>Plain textarea</h4>
+    <textarea class="material-input" placeholder="test" rows="3"></textarea>
+    <h4>Fill half of the screen</h4>
+    <textarea class="material-input" placeholder="test" data-material-width-percent="50"></textarea>
+    <h4>Textarea with auto grow and min height</h4>
+    <textarea class="material-input material-autosize" placeholder="test" data-material-min-height="100"></textarea>
+    <h4>Textarea with auto grow without min height</h4>
+    <textarea class="material-input material-autosize" placeholder="test" rows="3"></textarea>
+
+
+    <h2>Radio buttons</h2>
+    <input type="radio" class="material-radio" name="rew">
+    <input type="radio" class="material-radio" name="rew" disabled checked>
+    <input type="radio" class="material-radio" name="rew" disabled>
+
+    <input type="radio" class="material-radio" name="rdsdfvcs" checked>
+    <input type="radio" class="material-radio" name="rdsdfvcs">
+    <input type="radio" class="material-radio" name="rdsdfvcs">
+
+
+    <div class="material-notification" data-material-place="2">
+        <div class="material-notification-stripe material-notification-stripe-visible ">
+            <div class="material-notification-stripe-inner">Notification on load</div>
+        </div>
+        <div class="material-notification-stripe material-notification-stripe-visible " data-material-duration="5000">
+            <div class="material-notification-stripe-inner">Notification on load for 5 sec</div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

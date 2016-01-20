@@ -1,0 +1,60 @@
+.material-notification{
+  position: fixed;
+  width: 250px;
+  max-width: 100%;
+
+  z-index: 999;
+
+
+  &[data-material-place="2"]{
+    top: 0;
+    right: 0;
+  }
+  &[data-material-place="3"]{
+    bottom: 0;
+    right: 0;
+  }
+  &[data-material-place="1"]{
+    top: 0;
+    left: 0;
+  }
+  &[data-material-place="4"]{
+    bottom: 0;
+    left: 0;
+  }
+
+  .material-notification-stripe-visible{
+    top: 0 !important;
+    opacity: 1 !important;
+  }
+
+  .material-notification-stripe{
+    margin: 12px;
+
+overflow-y: hidden;
+
+    background-color: #323232;
+    color: #f1f1f1;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 2px;
+    position: relative;
+
+    left: 0;
+
+    opacity: 0;
+    top: 10px;
+
+    .material-notification-stripe-inner{
+      margin: 15px;
+      display: inline-block;
+    }
+
+    .material-notification-action{
+      float: right;
+      color: #df5747;
+      cursor: pointer;
+      margin: 15px 15px 15px 0 ;
+
+    }
+  }
+}

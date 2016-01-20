@@ -1,0 +1,49 @@
+.material-alert {
+  z-index: 999999999999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.material-alert > div {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.material-alert > div > div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.material-alert > div > div > div {
+  margin: auto;
+  padding: 20px;
+  text-align: left;
+  min-width: 250px;
+  max-width: 80%;
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+.material-alert > div > div > div .material-alert-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.material-alert > div > div > div p {
+  margin: 0;
+}
+.material-alert > div > div > div .material-alert-bottom {
+  text-align: right;
+}
+.material-alert > div > div > div .material-alert-bottom button {
+  text-transform: uppercase;
+  background: transparent;
+  border-radius: 2px;
+  margin: 0;
+}
+.material-alert > div > div > div .material-alert-bottom button .material-ink_e {
+  background-color: rgba(3, 169, 244, 0.5) !important;
+}

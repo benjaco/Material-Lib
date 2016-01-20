@@ -1,0 +1,169 @@
+.material.input {
+  position: relative;
+  padding-top: 10px;
+  /* LABEL ================================= */
+  /* BOTTOM BARS ================================= */
+  /* HIGHLIGHTER ================================== */
+}
+.material.input input {
+  font-size: 18px;
+  padding: 10px 0px 2px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent;
+  margin: 2px 0;
+  outline: none;
+}
+.material.input input[disabled] {
+  border-bottom: 1px dashed #757575;
+  background: transparent;
+}
+.material.input input:focus {
+  outline: none;
+}
+.material.input input[type="password"] {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.material.input label {
+  color: #757575;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 1px;
+  top: 21px;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+  cursor: text;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.material.input .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  top: -3px;
+  overflow-x: hidden;
+}
+.material.input .bar .left,
+.material.input .bar .right {
+  height: 0px;
+  position: absolute;
+  background: #5264ad;
+}
+.material.input .highlight-bar {
+  position: absolute;
+  height: 25px;
+  width: 50px;
+  top: 22px;
+  left: 50px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.material.material-input-fail .material-error-label {
+  visibility: visible;
+}
+.material .material-error-label {
+  visibility: hidden;
+  font-size: .7em;
+  padding: 1px 0;
+  color: #d34336;
+  float: left;
+}
+.material .material-char-count {
+  float: right;
+  font-size: .7em;
+  padding: 1px 0;
+  color: #757575;
+}
+.material.material-input-fail input {
+  border-bottom: 1px solid #d34336 !important;
+}
+.material.material-input-fail.focused.input .highlight-bar {
+  background: #d34336;
+}
+.material.input.material-input-fail.focused label {
+  color: #d34336 !important;
+}
+.material.material-input-fail .bar .left,
+.material.material-input-fail .bar .right {
+  background: #d34336;
+}
+.material.input.up label {
+  top: 2px;
+  font-size: 14px;
+}
+.material.input.up.material-input_no_float label {
+  top: 21px !important;
+  font-size: 18px !important;
+  display: none;
+}
+.material.input.focused .bar .left,
+.material.input.focused .bar .right {
+  height: 2px;
+}
+.material.input.focused.up label {
+  color: #5264ad;
+}
+.material.input.focused .highlight-bar {
+  -webkit-animation: material-input-text-highlight-bar 0.3s ease;
+  animation: material-input-text-highlight-bar 0.3s ease;
+  background: #5264ad;
+  opacity: 0;
+}
+.big {
+  margin-top: 10px;
+}
+.big label {
+  font-size: 2em !important;
+}
+.big input {
+  font-size: 2em !important;
+}
+.big .material.input.up label {
+  top: -2px;
+  font-size: 18px !important;
+}
+.big .material.input .highlight-bar {
+  top: 30px;
+}
+@-webkit-keyframes material-input-text-highlight-bar {
+  from {
+    opacity: 1;
+  }
+  to {
+    width: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+@keyframes material-input-text-highlight-bar {
+  from {
+    opacity: 1;
+  }
+  to {
+    width: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+.material-textarea textarea {
+  font-size: 18px;
+  padding: 2px 0px 2px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent;
+  margin: 10px 0 2px 0;
+  outline: none;
+}
+.material-textarea textarea[disabled] {
+  border-bottom: 1px dashed #757575;
+  background: transparent;
+}
