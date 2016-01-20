@@ -92,12 +92,18 @@ Style the size of the icon with setting the height and width of the div, the ico
 ######Animation requires Velocity.js 
 
 Icons
-    plus
-    close
-    check
-    menu
-    arrow_back
-    arrow_forward
+
+plus
+
+close
+
+check
+
+menu
+
+arrow_back
+
+arrow_forward
 
 ##Tools
 
