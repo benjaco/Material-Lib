@@ -109,9 +109,14 @@ arrow_forward
 
 `materialFramework.tools.validation_group("GROUP-NAME")` return true if all inputs in the group is valid 
 
-`materialFramework.tools.alert(title, message, buttontext)` shows a alert
+`materialFramework.tools.alert(title, message, buttontext, close_on_outerpress)` shows a alert
 
-`materialFramework.tools.confirm(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail)` shows a confirm box
+`materialFramework.tools.confirm(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, close_on_outerpress)` shows a confirm box
 
-`materialFramework.tools.custom(html, callback)` shows a alert styled box, but use the first parameter as the html content and fires the callback after inject to the end of the body, the callback function takes one parameter, a object with `obj` there reference to the markup and a `close` method
+`materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content
 
+alert, confirm and custom returns a object with `obj` there reference to the markup and a `close` method
+
+close_on_outerpress can be set to false or you can specify e function to fire when the user clicks on the area around of the popup
+if its a function, you must self fire close
+if its on the confirm element, and close_on_outerpress isn't a function, callback_fail will be fired

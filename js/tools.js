@@ -6,53 +6,78 @@ materialFramework.tools = {
             if ($(this).parent().hasClass('material-valid')) {
                 passed++;
             }
-        })
+        });
         return (el.size() == passed);
     },
-    alert: function (title, message, buttontext) {
-        $('<div class="material-alert" style="display: none"><div><div><div class="material-z3"><p class="material-alert-header">'
-        + title + '</p><p>' + message + '</p><div class="material-alert-bottom"> <button class="material-ink material-button material-prim-text-color">'
-        + buttontext + ' </button></div></div></div></div></div>')
-
-            .appendTo('body').fadeIn(200).find('button').focus().click(function () {
-                $(this).parent().parent().parent().parent().parent().fadeOut(200, function () {
+    alert: function (title, message, buttontext, close_on_outerpress) {
+        var alert = {
+            obj: $(
+                '<div class="material-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3"><p class="material-alert-header">'
+                + title + '</p><p>' + message + '</p><div class="material-alert-bottom"> <button class="material-ink material-button material-prim-text-color">'
+                + buttontext + ' </button></div></div></div></div></div>').appendTo('body').fadeIn(200),
+            close: function () {
+                this.obj.fadeOut(200, function () {
                     $(this).remove();
                 })
+            }
+        };
+
+        alert.obj.find('button').focus().click(function () {
+            alert.close()
+        });
+
+        if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
+            alert.obj.find('>div>div').click(function (e) {
+                if(e.target.className=="material-fadeout"){
+                    if(typeof close_on_outerpress === 'function'){
+                        close_on_outerpress(alert)
+                    }else{
+                        alert.close();
+                    }
+                }
             })
+        }
+        return alert;
     },
-    confirm: function (title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail) {
-        $('<div class="material-alert" style="display: none"><div><div><div class="material-z3"><p class="material-alert-header">'
-        + title + '</p><p>' + message + '</p><div class="material-alert-bottom"> <button class="material-ink material-button material-alert-confirm-fail">'
-        + buttontext_fail + ' </button> <button class="material-ink material-button material-alert-confirm-ok material-prim-text-color">'
-        + buttontext_ok + ' </button></div></div></div></div></div>')
-            .appendTo('body').fadeIn(200)
-            .find('.material-alert-confirm-ok').focus().click(function () {
-                callback_ok();
-                $(this).parent().parent().parent().parent().parent().fadeOut(200, function () {
+    confirm: function (title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, close_on_outerpress) {
+        var confirm = {
+            obj: $('<div class="material-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3"><p class="material-alert-header">'
+                + title + '</p><p>' + message + '</p><div class="material-alert-bottom"> <button class="material-ink material-button material-alert-confirm-fail">'
+                + buttontext_fail + ' </button> <button class="material-ink material-button material-alert-confirm-ok material-prim-text-color">'
+                + buttontext_ok + ' </button></div></div></div></div></div>').appendTo('body').fadeIn(200),
+            close: function () {
+                this.obj.fadeOut(200, function () {
                     $(this).remove();
                 });
-            })
-            .prev('.material-alert-confirm-fail').click(function () {
-                callback_fail();
-                $(this).parent().parent().parent().parent().parent().fadeOut(200, function () {
-                    $(this).remove();
-                });
-            })
+            }
+        };
 
+        confirm.obj.find('.material-alert-confirm-ok').focus().click(function () {
+            callback_ok();
+            confirm.close();
+        });
+        confirm.obj.find('.material-alert-confirm-fail').click(function () {
+            callback_fail();
+            confirm.close()
+        });
 
+        if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
+            confirm.obj.find('>div>div').click(function (e) {
+                if(e.target.className=="material-fadeout"){
+                    if(typeof close_on_outerpress === 'function'){
+                        close_on_outerpress(confirm)
+                    }else{
+                        callback_fail();
+                        confirm.close()
+                    }
+                }
+            })
+        }
+        return confirm;
     },
-    custom: function (contex, after_insert) {
-        /*
-         usages:
-
-         materialFramework.tools.custom('<p id="cl">luk</p>', function(d){
-         d.obj.find('#cl').click(function(){
-         d.close()
-         })
-         })
-         */
-        var box = {
-            obj: $('<div class="material-alert" style="display: none"><div><div><div class="material-z3">' + contex + '</div></div></div></div>')
+    custom: function (contex, close_on_outerpress) {
+        var custom = {
+            obj: $('<div class="material-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3">' + contex + '</div></div></div></div>')
                 .appendTo('body').fadeIn(200),
             close: function () {
                 var t = this;
@@ -61,7 +86,18 @@ materialFramework.tools = {
                 })
             }
         };
-        after_insert(box)
+        if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
+            custom.obj.find('>div>div').click(function (e) {
+                if(e.target.className=="material-fadeout"){
+                    if(typeof close_on_outerpress === 'function'){
+                        close_on_outerpress(custom)
+                    }else{
+                        custom.close();
+                    }
+                }
+            })
+        }
+        return custom;
 
     },
     new_notification: function (options) {
