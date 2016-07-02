@@ -12,7 +12,7 @@ materialFramework.tools = {
     alert: function (title, message, buttontext, close_on_outerpress) {
         var alert = {
             obj: $(
-                '<div class="material-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3"><p class="material-alert-header">'
+                '<div class="material-alert material-aml-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3"><p class="material-alert-header">'
                 + title + '</p><p>' + message + '</p><div class="material-alert-bottom"> <button class="material-ink material-button material-prim-text-color">'
                 + buttontext + ' </button></div></div></div></div></div>').appendTo('body').fadeIn(200),
             close: function () {
@@ -24,6 +24,15 @@ materialFramework.tools = {
 
         alert.obj.find('button').focus().click(function () {
             alert.close()
+        });
+
+
+        alert.obj.keydown(function (e) {
+            e.stopPropagation();
+
+            if(e.which == 27){
+                alert.close()
+            }
         });
 
         if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
@@ -46,20 +55,54 @@ materialFramework.tools = {
                 + buttontext_fail + ' </button> <button class="material-ink material-button material-alert-confirm-ok material-prim-text-color">'
                 + buttontext_ok + ' </button></div></div></div></div></div>').appendTo('body').fadeIn(200),
             close: function () {
+                this.isClosed = true;
                 this.obj.fadeOut(200, function () {
                     $(this).remove();
                 });
-            }
+            },
+            isClosed: false
         };
 
+
         confirm.obj.find('.material-alert-confirm-ok').focus().click(function () {
-            callback_ok();
-            confirm.close();
+            if(!confirm.isClosed) {
+                confirm.close();
+                callback_ok();
+            }
         });
+
         confirm.obj.find('.material-alert-confirm-fail').click(function () {
-            callback_fail();
-            confirm.close()
+            if(!confirm.isClosed) {
+                confirm.close();
+                callback_fail();
+            }
         });
+
+
+
+        confirm.obj.keydown(function (e) {
+            if(!confirm.isClosed) {
+                e.stopPropagation();
+
+                if(e.which == 27){
+                    confirm.close();
+                    callback_fail();
+                } else if(
+                    e.which == 37 ||
+                    e.which == 38 ||
+                    e.which == 39 ||
+                    e.which == 40 ||
+                    e.which == 9
+                ){
+                    if(confirm.obj.find('.material-alert-confirm-ok').is(":focus")) {
+                        confirm.obj.find('.material-alert-confirm-fail').focus()
+                    }else {
+                        confirm.obj.find('.material-alert-confirm-ok').focus()
+                    }
+                }
+            }
+        });
+
 
         if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
             confirm.obj.find('>div>div').click(function (e) {
@@ -77,15 +120,28 @@ materialFramework.tools = {
     },
     custom: function (contex, close_on_outerpress) {
         var custom = {
-            obj: $('<div class="material-alert" style="display: none"><div><div class="material-fadeout"><div class="material-z3">' + contex + '</div></div></div></div>')
+            obj: $('<div class="material-alert" style="display: none" tabindex="1"><div><div class="material-fadeout"><div class="material-z3">' + contex + '</div></div></div></div>')
                 .appendTo('body').fadeIn(200),
             close: function () {
                 var t = this;
                 t.obj.fadeOut(200, function () {
                     t.obj.remove();
                 })
+            },
+            bindEsc: function () {
+                this.obj.keydown(function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    if(e.which == 27){
+                        custom.close();
+                    }
+                });
+
             }
         };
+        custom.obj.focus();
+
         if (typeof close_on_outerpress === 'function' || typeof close_on_outerpress === "undefined") {
             custom.obj.find('>div>div').click(function (e) {
                 if(e.target.className=="material-fadeout"){

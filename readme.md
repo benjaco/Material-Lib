@@ -113,7 +113,7 @@ arrow_forward
 
 `materialFramework.tools.confirm(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, close_on_outerpress)` shows a confirm box
 
-`materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content
+`materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content, `.bindEsc()` can be added
 
 alert, confirm and custom returns a object with `obj` there reference to the markup and a `close` method
 

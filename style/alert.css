@@ -7,6 +7,9 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.material-alert.material-aml-alert button {
+  border-color: transparent !important;
+}
 .material-alert > div {
   display: table;
   width: 100%;
@@ -43,7 +46,15 @@
   background: transparent;
   border-radius: 2px;
   margin: 0;
+  padding: 9px;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.material-alert > div > div > div .material-alert-bottom button:focus {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .material-alert > div > div > div .material-alert-bottom button .material-ink_e {
   background-color: rgba(3, 169, 244, 0.5) !important;
+}
+.material-alert > div > div > div .material-alert-bottom button.material-alert-confirm-fail .material-ink_e {
+  background-color: rgba(189, 189, 189, 0.5) !important;
 }
