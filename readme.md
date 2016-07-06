@@ -113,6 +113,14 @@ arrow_forward
 
 `materialFramework.tools.confirm(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, close_on_outerpress)` shows a confirm box
 
+`materialFramework.tools.prompt(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, placeholder, default_text, regexp, error_msg, close_on_outerpress)` shows a prompt
+
+`materialFramework.tools.prompt_form(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, inputs, close_on_outerpress)` shows a form as prompt
+
+`materialFramework.tools.form_error` can be changed for customize the error
+
+input parameter is a array of object with "regexp, error_msg, placeholder, value, type" in it, "regexp, error_msg, value, type" is optional
+
 `materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content, `.bindEsc()` can be added
 
 alert, confirm and custom returns a object with `obj` there reference to the markup and a `close` method

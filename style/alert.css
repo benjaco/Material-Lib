@@ -24,11 +24,15 @@
   margin: auto;
   padding: 20px;
   text-align: left;
-  min-width: 250px;
   max-width: 80%;
   display: inline-block;
   background-color: #ffffff;
   border-radius: 2px;
+}
+@media screen and (min-width: 250px) {
+  .material-alert > div > div > div {
+    min-width: 250px;
+  }
 }
 .material-alert > div > div > div .material-alert-header {
   font-size: 20px;
@@ -40,6 +44,13 @@
 }
 .material-alert > div > div > div .material-alert-bottom {
   text-align: right;
+}
+.material-alert > div > div > div .material-alert-bottom .material-popup-error {
+  display: inline;
+  padding: 0 2px;
+  opacity: 0;
+  color: #db4437;
+  transition: opacity 200ms ease-in-out;
 }
 .material-alert > div > div > div .material-alert-bottom button {
   text-transform: uppercase;
