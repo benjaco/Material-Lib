@@ -123,7 +123,7 @@ input parameter is a array of object with "regexp, error_msg, placeholder, value
 
 `materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content, `.bindEsc()` can be added
 
-alert, confirm and custom returns a object with `obj` there reference to the markup and a `close` method
+alert, confirm, prompt, prompt_form and custom returns a object with `obj` there reference to the markup and a `close` method
 
 close_on_outerpress can be set to false or you can specify e function to fire when the user clicks on the area around of the popup
 if its a function, you must self fire close
