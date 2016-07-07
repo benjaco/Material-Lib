@@ -26,6 +26,10 @@
 .material.input input[type="password"] {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.material.input.down input:-webkit-autofill ~ label {
+  top: 2px;
+  font-size: 14px;
+}
 .material.input label {
   color: #757575;
   font-size: 18px;

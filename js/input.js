@@ -110,35 +110,6 @@ materialFramework.core_elements.input = {
 
             });
 
-            // auotcompleat check
-            setTimeout(function(){
-                if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).val().length != 0) {
-                    parent.addClass('up');
-
-                    if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).hasClass('material-input_no_float')) {
-                        parent.addClass('material-input_no_float');
-                    }
-                }else {
-                    setTimeout(function(){
-                        if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).val().length != 0) {
-                            parent.addClass('up');
-                            if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).hasClass('material-input_no_float')) {
-                                parent.addClass('material-input_no_float');
-                            }
-                        }else{
-                            setTimeout(function(){
-                                if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).val().length != 0) {
-                                    parent.addClass('up');
-                                    if (parent.find((parent.hasClass('material-textarea')?'textarea':'input')).hasClass('material-input_no_float')) {
-                                        parent.addClass('material-input_no_float');
-                                    }
-                                }
-                            },5000)
-                        }
-                    },2500)
-                }
-            },100);
-
 
             parent.mousedown(function (e) {
                 materialFramework.core_elements.input.last_mouse_down = e.pageX
