@@ -84,7 +84,7 @@ materialFramework.tools = {
         return confirm;
     },
     prompt: function (title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, placeholder, default_text, regexp, error_msg, close_on_outerpress) {
-        return this.prompt_form(
+        var prompt = this.prompt_form(
             title,
             message,
             buttontext_ok,
@@ -101,7 +101,11 @@ materialFramework.tools = {
                     value: default_text
                 }
             ],
-            close_on_outerpress)
+            close_on_outerpress);
+        var input = prompt.obj.find("input").get(0);
+        input.selectionStart = 0;
+        input.selectionEnd = input.value.length;
+        return prompt;
     },
     form_error: "Complete the formular",
     prompt_form: function (title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, inputs, close_on_outerpress) {
