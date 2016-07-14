@@ -8,21 +8,47 @@
             this.checked = !this.checked;
         });
 
-    }
+    };
     $.fn.hasSetWidth = function () {
         return (this[0].style.width != "");
 
-    }
+    };
     $.fn.getWidth = function () {
         return this[0].style.width
-    }
+    };
     $.fn.hasSetHeight = function () {
         return (this[0].style.height != "");
 
-    }
+    };
     $.fn.getHeight = function () {
         return this[0].style.height
+    };
+    $.fn.attributeChange = function (callback) {
+        var MutationObserver = window.MutationObserver
+        || window.WebKitMutationObserver
+        || window.MozMutationObserver;
+        var element = this[0];
+
+
+        if (MutationObserver) {
+            var observer = new MutationObserver(function(mutation) {
+                callback(element, mutation[0].attributeName)
+            });
+
+            observer.observe(element, {
+                subtree: false,
+                attributes: true,
+                attributeOldValue: false
+            });
+
+
+        } else if ('onpropertychange' in document.body) { //works only in IE
+            element.onpropertychange =  function(event){
+                callback(element, event.propertyName)
+            }
+        }
     }
+
 }(jQuery));
 
 function detectIE() {

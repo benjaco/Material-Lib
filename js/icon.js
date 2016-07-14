@@ -1,7 +1,3 @@
-window.MutationObserver = window.MutationObserver
-    || window.WebKitMutationObserver
-    || window.MozMutationObserver;
-
 materialFramework.core_elements.icon = {
     /*
      l1,l2,l3
@@ -67,29 +63,11 @@ materialFramework.core_elements.icon = {
                 .attr("y2", icon[2][3] + "%")
                 .attr("opacity", icon[2][4]);
 
-
-            if (MutationObserver) {
-                var observer = new MutationObserver(function(mutation) {
-                    if(mutation[0].attributeName == "data-icon"){
-                        materialFramework.core_elements.icon.attrChanged(element)
-                    }
-                });
-
-                observer.observe(element[0], {
-                    subtree: false,
-                    attributes: true,
-                    attributeOldValue: false
-                });
-
-
-            } else if ('onpropertychange' in document.body) { //works only in IE
-                element[0].onpropertychange =  function(event){
-                    if(event.propertyName == "data-icon"){
-                        materialFramework.core_elements.icon.attrChanged(element)
-                    }
+            element.attributeChange(function (ele, attrName) {
+                if(attrName == "data-icon") {
+                    materialFramework.core_elements.icon.attrChanged(element)
                 }
-            }
-
+            });
 
         })
     },

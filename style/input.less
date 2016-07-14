@@ -51,7 +51,6 @@
     pointer-events: none;
     left: 1px;
     top: 21px;
-    -webkit-transition: 0.2s ease all;
     transition: 0.2s ease all;
     cursor: text;
     -ms-user-select: none;
@@ -170,7 +169,6 @@
 
 .material.input.focused {
   .highlight-bar{
-    -webkit-animation: material-input-text-highlight-bar 0.3s ease;
     animation: material-input-text-highlight-bar 0.3s ease;
 
     background: @material-input-selected-color;
@@ -197,16 +195,6 @@
 }
 
 // Animations
-@-webkit-keyframes material-input-text-highlight-bar {
-  from {
-    opacity: 1;
-  }
-  to {
-    width: 0;
-    left:0;
-    opacity: 0;
-  }
-}
 @keyframes material-input-text-highlight-bar {
   from {
     opacity: 1;

@@ -5,6 +5,15 @@
   background-color: #dedede;
   border-color: #fff;
 }
+.material-button:focus:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.12);
+}
 .material-prim-text-color {
   color: #03a8f2;
 }
