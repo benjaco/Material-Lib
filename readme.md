@@ -11,6 +11,8 @@ Call `materialFramework.init()` when the app has ben loaded
 
 Call `materialFramework.init(false)` if you want to call `materialFramework.updateElements()` by yourself when new elements has ben added, otherwise the framework will keep a look for new elements automatically
 
+It´s possible to change the autoupdate settings by calling `materialFramework.setAutoupdate(true/false)`  
+
 ##Classes/Elements to use
 
 ###Input

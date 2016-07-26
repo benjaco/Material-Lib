@@ -89,21 +89,34 @@ materialFramework = {
     /iPad|iPhone|iPod/.test(navigator.platform),
 
     init: function (autoUpdate) {
+
+        materialFramework.core_elements.ink.init();
         this.updateElements();
-        if (typeof autoUpdate === "undefined") {
-            document.addEventListener("DOMNodeInserted", function () {
-                materialFramework.updateElements();
-            });
+
+        this.autoUpdate = typeof autoUpdate === "undefined" || autoUpdate === true;
+        if (this.autoUpdate) {
+            document.addEventListener("DOMNodeInserted", materialFramework.updateElements );
         }
+
         this.tools.handelDefaultNotifications()
     },
-    updateElements: function () {
-        for (var key in this.core_elements) {
-            if (this.core_elements[key].init()) {
-            }
+    autoUpdate: true,
+    setAutoupdate: function (autoUpdate) {
+        if(autoUpdate == this.autoUpdate) {
+            return
         }
+        this.autoUpdate = autoUpdate === true;
+
+        if(this.autoUpdate) {
+            document.addEventListener("DOMNodeInserted", materialFramework.updateElements );
+            this.updateElements();
+        }else{
+            document.removeEventListener("DOMNodeInserted", materialFramework.updateElements );
+        }
+    },
+    updateElements: function () {
+        materialFramework.core_elements.checkbox.init();
+        materialFramework.core_elements.icon.init();
+        materialFramework.core_elements.input.init();
     }
-}
-
-
-
+};

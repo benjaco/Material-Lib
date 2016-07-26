@@ -191,6 +191,11 @@ materialFramework.tools = {
             }
         });
 
+
+        if(!materialFramework.autoUpdate) {
+            materialFramework.core_elements.input.init();
+        }
+
         return popup;
     },
     custom: function (contex, close_on_outerpress) {
