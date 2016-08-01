@@ -4,6 +4,7 @@
   border: 0;
   background-color: #dedede;
   border-color: #fff;
+  position: relative;
 }
 .material-button:focus:after {
   content: "";
