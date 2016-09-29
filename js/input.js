@@ -165,7 +165,15 @@ materialFramework.core_elements.input = {
             });
 
 
-        })
+        });
+
+        $(".material-button:not([data-initilized])")
+            .attr("data-initilized", true)
+            .each(function () {
+                if( $(this).parent().is("a") ) {
+                    $(this).parent().attr("tabindex", -1);
+                }
+            })
     },
     init: function () {
         this.add_require_element();
