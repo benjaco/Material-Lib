@@ -130,3 +130,5 @@ alert, confirm, prompt, prompt_form and custom returns a object with `obj` there
 close_on_outerpress can be set to false or you can specify e function to fire when the user clicks on the area around of the popup
 if its a function, you must self fire close
 if its on the confirm element, and close_on_outerpress isn't a function, callback_fail will be fired
+
+its possible to listen for a close on all popup function with `popup.onClose=function(){}`, this function will also be called when you call `popup.close()` manually

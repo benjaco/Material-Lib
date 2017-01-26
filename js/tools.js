@@ -209,8 +209,12 @@ materialFramework.tools = {
                     var t = this;
                     t.obj.fadeOut(200, function () {
                         t.obj.remove();
+                        t.onClose();
                     })
                 }
+            },
+            onClose: function () {
+                // overwrite me
             },
             bindEsc: function () {
                 this.obj.keydown(function (e) {
