@@ -106,6 +106,8 @@ materialFramework.core_elements.input = {
 
                 if ($(this).val().length == 0) {
                     $(this).parent().addClass('down').removeClass('up');
+                }else{
+                    $(this).parent().addClass('up').removeClass('down');
                 }
 
             });
@@ -115,6 +117,9 @@ materialFramework.core_elements.input = {
                 materialFramework.core_elements.input.last_mouse_down = e.pageX
             });
 
+            $(this).change(function () {
+                $(this).trigger("focusout")
+            });
 
             $(this).focusin(function (e) {
 

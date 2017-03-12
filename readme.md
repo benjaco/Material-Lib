@@ -38,6 +38,8 @@ Validation:
 
 >`materialFramework.tools.validation_group("GROUP-NAME")` return true if all inputs in the group is valid 
 
+Do not forget to call `.change()` when changed programmatically if u are using a floating label, and you want it to have the position updated
+
 Support for autocomlete
 ###Radio buttons
 Class: material-radio
@@ -132,3 +134,21 @@ if its a function, you must self fire close
 if its on the confirm element, and close_on_outerpress isn't a function, callback_fail will be fired
 
 its possible to listen for a close on all popup function with `popup.onClose=function(){}`, this function will also be called when you call `popup.close()` manually
+
+##Minifying it
+
+You need to have grunt install, just run `grunt` after installing
+
+Quick script
+```
+npm install -g grunt-cli
+
+npm install grunt
+
+npm install grunt-contrib-clean
+
+npm install grunt-contrib-cssmin
+
+npm install grunt-contrib-uglify
+```
+node.js is required
