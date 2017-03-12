@@ -4,7 +4,7 @@ License: MIT
 
 A javascript micro framework there let you add basic material effects to your web app
 
-See examples of all functions in index.html
+See examples of all functions in index.html [demo](http://benjaco.github.io/Matrial-Lib/)
 
 ##Initalising the libery
 Call `materialFramework.init()` when the app has ben loaded
