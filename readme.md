@@ -1,4 +1,4 @@
-#Matrial lib
+# Matrial lib
 
 License: MIT
 
@@ -6,16 +6,16 @@ A javascript micro framework there let you add basic material effects to your we
 
 See examples of all functions in index.html [demo](http://benjaco.github.io/Matrial-Lib/)
 
-##Initalising the libery
+## Initalising the libery
 Call `materialFramework.init()` when the app has ben loaded
 
 Call `materialFramework.init(false)` if you want to call `materialFramework.updateElements()` by yourself when new elements has ben added, otherwise the framework will keep a look for new elements automatically
 
 It´s possible to change the autoupdate settings by calling `materialFramework.setAutoupdate(true/false)`  
 
-##Classes/Elements to use
+## Classes/Elements to use
 
-###Input
+### Input
 Class: `material-input`
 
 Do: style a input or a textarea element and use the placeholder attribute for the label
@@ -41,17 +41,17 @@ Validation:
 Do not forget to call `.change()` when changed programmatically if u are using a floating label, and you want it to have the position updated
 
 Support for autocomlete
-###Radio buttons
+### Radio buttons
 Class: material-radio
 
 Support for disabled and checked attributes
 
-###Checkboxes
+### Checkboxes
 Class: material-checkbox
 
 Support for disabled and checked attributes
 
-###Ink
+### Ink
 Class: `material-ink`
 
 Override position relative, overflow hidden is necessary
@@ -59,7 +59,7 @@ Override position relative, overflow hidden is necessary
 Things to add:
 `.material-ink-round` When round ink for a round element
 
-#####Change color
+##### Change color
 ``` css
 {{our selector}} .material-ink_e{
     background-color: rgba(77, 212, 79, .5) !important;
@@ -70,20 +70,20 @@ The speed of the ink can be adjust by adding those classes:
 
 `material-ink_slow` or `material-ink_slower`
 
-##Button
+## Button
 Class: `material-button`
 
 Do: remove default styling of a button
 
 Add: `material-ripple` and `material-ink` to make it look like a material button
 
-###Ripple
+### Ripple
 Class: `material-ripple`
 
 Do: gives it a shadow that animate when active
 
 
-###Icons
+### Icons
 Class: `material-icon`
 
 Do: set the class and attribute on a div
@@ -93,7 +93,7 @@ Attribute:
  
 Style the size of the icon with setting the height and width of the div, the icon using stroke-width and stroke
 `.material-icon_no_animation` can be added to disable the animation when icon attribute changes
-######Animation requires Velocity.js 
+###### Animation requires Velocity.js 
 
 Icons:
 
@@ -109,7 +109,7 @@ arrow_back
 
 arrow_forward
 
-##Tools
+## Tools
 
 `materialFramework.tools.validation_group("GROUP-NAME")` return true if all inputs in the group is valid 
 
@@ -135,7 +135,7 @@ if its on the confirm element, and close_on_outerpress isn't a function, callbac
 
 its possible to listen for a close on all popup function with `popup.onClose=function(){}`, this function will also be called when you call `popup.close()` manually
 
-##Minifying it
+## Minifying it
 
 You need to have grunt install, just run `grunt` after installing
 
