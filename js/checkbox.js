@@ -80,14 +80,14 @@ materialFramework.core_elements.checkbox = {
             .append("<div class=\'material-checkbox_outer\' tabindex='0'  role='checkbox' aria-checked='false'>\n    <div class=\"material-checkbox_inner\"></div>\n</div>")
             .append("<div class=\'material-checkbox_ink\' ></div>")
             .queue(function () {
-                if($(this).find("input").attr("disabled") == "disabled"){
+                if ($(this).find("input").attr("disabled") == "disabled") {
                     $(this).find(".material-checkbox_outer").attr("tabindex", -1)
                 }
                 $(this).find("input").attributeChange(function (ele, attrname) {
-                    if(attrname == "disabled") {
-                        if($(ele).attr("disabled") == "disabled"){
+                    if (attrname == "disabled") {
+                        if ($(ele).attr("disabled") == "disabled") {
                             $(ele).next().attr("tabindex", -1)
-                        }else {
+                        } else {
                             $(ele).next().attr("tabindex", 0)
 
                         }
@@ -108,13 +108,13 @@ materialFramework.core_elements.checkbox = {
             })
             .next()
             .keyup(function (e) {
-                if(e.which == 32 && !$(this).prev().is(":disabled") ) {
+                if (e.which == 32 && !$(this).prev().is(":disabled")) {
                     $(this).prev()[0].checked = !$(this).prev()[0].checked;
                     $(this).prev().trigger("change");
                     return false;
                 }
             })
-            .keydown(function(e) {
+            .keydown(function (e) {
                 if (e.which == 32) {
                     return false;
                 }
@@ -123,6 +123,11 @@ materialFramework.core_elements.checkbox = {
 
         $('.material-radio:not([data-initilized])')
             .attr("data-initilized", true)
+            .css({
+                width: 0,
+                height: 0,
+                opacity: 0
+            })
             .wrap("<label class='material-radio-label'></label>")
             .parent()
             .append("<div class=\'material-radio_outer\'>\n    <div class=\"material-radio_inner\"></div>\n</div>")
@@ -131,7 +136,7 @@ materialFramework.core_elements.checkbox = {
                 var element = $(this).find("input");
                 setTimeout(function () {
                     element.blur()
-                },300)
+                }, 300)
             })
             .find("input")
 
