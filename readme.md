@@ -1,15 +1,15 @@
-# Matrial lib
+# Material lib
 
 License: MIT
 
-A javascript micro framework there let you add basic material effects to your web app
+A javascript micro framework there let you add basic material effects to your web app.
 
 See examples of all functions in index.html [demo](http://benjaco.github.io/Matrial-Lib/)
 
-## Initalising the libery
-Call `materialFramework.init()` when the app has ben loaded
+## Initializing the library
+Call `materialFramework.init()` when the app has been loaded.
 
-Call `materialFramework.init(false)` if you want to call `materialFramework.updateElements()` by yourself when new elements has ben added, otherwise the framework will keep a look for new elements automatically
+Call `materialFramework.init(false)` if you want to call `materialFramework.updateElements()` by yourself when new elements are added to the page, otherwise the framework will keep a look for new elements automatically.
 
 It´s possible to change the autoupdate settings by calling `materialFramework.setAutoupdate(true/false)`  
 
@@ -18,46 +18,46 @@ It´s possible to change the autoupdate settings by calling `materialFramework.s
 ### Input
 Class: `material-input`
 
-Do: style a input or a textarea element and use the placeholder attribute for the label
+Do: styles an input or a textarea element and uses the placeholder attribute for the label.
 
 Things to add:
 
-`.material-input_no_float` Will do ass the label disappear when focused or filled 
+`.material-input_no_float` Hides the label when focused or filled.
 
-If you want to define the width of the input in percent, use the `data-material-width-percent` attribute
+If you want to define the width of the input in percent, use the `data-material-width-percent` attribute.
 
 `.material-autosize` Can autogrow/shink a textarea
 
-`data-material-min-height` Can set a min height for a autosize textarea using the attribute
+`data-material-min-height` Set a min-height for an autosize textarea input
 
 Validation:
 >Attributes:
->`data-material-validation-group` Give the form a reference
->`data-material-regexp` Regular expession the input must match
->`data-material-error` Error to show when regesx dont match
+>`data-material-validation-group` Used to group multiple inputs for form validation
+>`data-material-regexp` Regular expression the input must match
+>`data-material-error` Error to show when regex doesn't match
 
->`materialFramework.tools.validation_group("GROUP-NAME")` return true if all inputs in the group is valid 
+>`materialFramework.tools.validation_group("GROUP-NAME")` return true if all inputs in the group is valid.
 
-Do not forget to call `.change()` when changed programmatically if u are using a floating label, and you want it to have the position updated
+Do not forget to call `.change()` when inputs with a floating label are changed programmatically, it will update the position of the label.
 
 Support for autocomlete
 ### Radio buttons
 Class: material-radio
 
-Support for disabled and checked attributes
+Disabled and checked attributes are supported.
 
 ### Checkboxes
 Class: material-checkbox
 
-Support for disabled and checked attributes
+Disabled and checked attributes are supported.
 
 ### Ink
 Class: `material-ink`
 
-Override position relative, overflow hidden is necessary
+Override position relative, overflow hidden is necessary to get the ink working.
 
 Things to add:
-`.material-ink-round` When round ink for a round element
+`.material-ink-round` Round ink for round elements
 
 ##### Change color
 ``` css
@@ -66,7 +66,7 @@ Things to add:
 }   
 ```
 
-The speed of the ink can be adjust by adding those classes:
+The speed of the ink can be adjusted by adding those classes:
 
 `material-ink_slow` or `material-ink_slower`
 
@@ -91,7 +91,7 @@ Do: set the class and attribute on a div
 Attribute:
 `data-icon` sets the icon
  
-Style the size of the icon with setting the height and width of the div, the icon using stroke-width and stroke
+Style the size of the icon with setting the height and width of the div, the icon can be styled using stroke-width and stroke
 `.material-icon_no_animation` can be added to disable the animation when icon attribute changes
 ###### Animation requires Velocity.js 
 
@@ -121,17 +121,17 @@ arrow_forward
 
 `materialFramework.tools.prompt_form(title, message, buttontext_ok, buttontext_fail, callback_ok, callback_fail, inputs, close_on_outerpress)` shows a form as prompt
 
-`materialFramework.tools.form_error` can be changed for customize the error
+`materialFramework.tools.form_error` can be changed for customizing the error
 
-input parameter is a array of object with "regexp, error_msg, placeholder, value, type" in it, "regexp, error_msg, value, type" is optional
+The input parameter is an array of object with "regexp, error_msg, placeholder, value, type" in it, "regexp, error_msg, value, type" is optional
 
 `materialFramework.tools.custom(html, close_on_outerpress)` shows a alert styled box, but use the first parameter as the html content, `.bindEsc()` can be added
 
-alert, confirm, prompt, prompt_form and custom returns a object with `obj` there reference to the markup and a `close` method
+alert, confirm, prompt, prompt_form and custom returns an object with `obj` their reference to the markup and a `close` method
 
 close_on_outerpress can be set to false or you can specify e function to fire when the user clicks on the area around of the popup
-if its a function, you must self fire close
-if its on the confirm element, and close_on_outerpress isn't a function, callback_fail will be fired
+if it's a function, you must self fire close
+if it's on the confirm element, and close_on_outerpress isn't a function, callback_fail will be fired
 
 its possible to listen for a close on all popup function with `popup.onClose=function(){}`, this function will also be called when you call `popup.close()` manually
 

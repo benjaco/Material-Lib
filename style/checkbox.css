@@ -15,6 +15,7 @@
   opacity: 0;
   transform: scale(0);
   animation: matarial-selection-rippel-off 0.3s;
+  pointer-events: none;
 }
 .material-checkbox-label.material-no-animation .material-checkbox_ink,
 .material-checkbox-label.material-no-animation .material-checkbox_inner {
